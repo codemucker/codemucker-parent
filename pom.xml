@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+						http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.bertvanbrakel</groupId>
+	<artifactId>bertvanbrakel-parent</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>com.bertvanbrakel - Parent POM</name>
+	<packaging>pom</packaging>
+	<properties>
+		<java.src.version>1.6</java.src.version>
+		<java.target.version>1.6</java.target.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.test.failure.ignore>false</maven.test.failure.ignore>
+	</properties>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>codehaus.snapshots</id>
+            <url>http://snapshots.repository.codehaus.org/</url>
+            <layout>default</layout>
+        </pluginRepository>
+    </pluginRepositories>
+    <distributionManagement>
+        <site>
+            <id>website</id>
+            <url>file://tmp/maven-site</url>
+            <!--<url>site-deploy</url>-->
+        </site>
+    </distributionManagement>
+    <mailingLists>
+        <mailingList>
+            <name>bert van Brakel</name>
+            <post>bertvanbrakel@gmail.com</post>
+        </mailingList>
+    </mailingLists>
+	<build>
+		<resources>
+			<!-- enable interpolation of the resources -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+		<testResources>
+			<!-- enable interpolation of the resources -->
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</testResource>
+		</testResources>
+			<plugins>
+				<!-- set compile src and target versions -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${java.src.version}</source>
+						<target>${java.target.version}</target>
+					</configuration>
+				</plugin>
+				<!-- always want to generate src jars alongside the binary jars -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<phase>package</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!--
+                    ensure unit test output appears on the console
+				-->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<configuration>
+                        <!--<testFailureIgnore>false</testFailureIgnore>-->
+						<reportFormat>brief</reportFormat>
+						<useFile>false</useFile>
+					</configuration>
+				</plugin>
+            	<!--generate build numbers-->
+                <!--
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>maven-buildnumber-plugin</artifactId>
+                    <version>1.0-beta-3</version>
+                    <executions>
+                        <execution>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>create</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <timestampFormat>{0,date,yyyy-MM-dd@HH:mm:ss}</timestampFormat>
+                    </configuration>
+                </plugin>
+                -->
+			</plugins>
+	</build>
+</project>

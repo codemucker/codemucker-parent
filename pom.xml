@@ -10,8 +10,8 @@
 	<name>com.bertvanbrakel - Parent POM</name>
 	<packaging>pom</packaging>
 	<properties>
-		<java.src.version>1.6</java.src.version>
-		<java.target.version>1.6</java.target.version>
+		<java.src.version>1.7</java.src.version>
+		<java.target.version>1.7</java.target.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.test.failure.ignore>false</maven.test.failure.ignore>
 	</properties>

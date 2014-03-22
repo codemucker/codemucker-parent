@@ -4,16 +4,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
 						http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.bertvanbrakel</groupId>
-	<artifactId>bertvanbrakel-parent</artifactId>
+	<groupId>org.codemucker</groupId>
+	<artifactId>codemucker-parent</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>com.bertvanbrakel - Parent POM</name>
+	<name>org.codemucker - Parent POM</name>
 	<packaging>pom</packaging>
 	<properties>
 		<java.src.version>1.7</java.src.version>
 		<java.target.version>1.7</java.target.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.test.failure.ignore>false</maven.test.failure.ignore>
+        <maven-surefire-plugin.version>2.16</maven-surefire-plugin.version>
+        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+        <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+        <maven-resource-plugin.version>2.6</maven-resource-plugin.version>
+        <resource.encoding>UTF-8</resource.encoding>
 	</properties>
     <pluginRepositories>
         <pluginRepository>
@@ -35,6 +40,53 @@
             <post>bertvanbrakel@gmail.com</post>
         </mailingList>
     </mailingLists>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-all</artifactId>
+                <version>1.3</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit-addons</groupId>
+                <artifactId>junit-addons</artifactId>
+                <version>1.4</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>16.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.4</version>
+            </dependency>
+             <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+            <dependency>
+			    <groupId>com.google.inject</groupId>
+			    <artifactId>guice</artifactId>
+			    <version>3.0</version>
+			</dependency>
+		</dependencies>
+    </dependencyManagement>
 	<build>
 		<resources>
 			<!-- enable interpolation of the resources -->
@@ -62,6 +114,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
 					<configuration>
 						<source>${java.src.version}</source>
 						<target>${java.target.version}</target>
@@ -71,6 +124,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
 					<executions>
 						<execution>
 							<id>attach-sources</id>
@@ -87,12 +141,21 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
 					<configuration>
                         <!--<testFailureIgnore>false</testFailureIgnore>-->
 						<reportFormat>brief</reportFormat>
 						<useFile>false</useFile>
 					</configuration>
 				</plugin>
+				<plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven-resource-plugin.version}</version>
+                    <configuration>
+                      <encoding>${resource.encoding}</encoding>
+                    </configuration>
+                </plugin>
             	<!--generate build numbers-->
                 <!--
                 <plugin>

@@ -4,10 +4,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
 						http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.bertvanbrakel</groupId>
-	<artifactId>bertvanbrakel-parent</artifactId>
+	<groupId>org.codemucker</groupId>
+	<artifactId>codemucker-parent</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>com.bertvanbrakel - Parent POM</name>
+	<name>com.codemucker - Parent POM</name>
 	<packaging>pom</packaging>
 	<properties>
 		<java.src.version>1.7</java.src.version>
@@ -37,7 +37,7 @@
     <mailingLists>
         <mailingList>
             <name>bert van Brakel</name>
-            <post>bertvanbrakel@gmail.com</post>
+            <post>bertvanbrakel+codemucker@gmail.com</post>
         </mailingList>
     </mailingLists>
     <dependencyManagement>

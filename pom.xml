@@ -88,19 +88,35 @@
 		</dependencies>
     </dependencyManagement>
 	<build>
-		<resources>
-			<!-- enable interpolation of the resources -->
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>**/*.properties</include>
-					<include>**/*.xml</include>
-				</includes>
-			</resource>
-		</resources>
-		<testResources>
-			<!-- enable interpolation of the resources -->
+        <resources>
+            <!-- don't interpolate those in the src directory -->
+            <resource>
+                <directory>src/main/java</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+	        <!-- enable interpolation of the resources -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <testResources>
+            <!-- don't interpolate those in the src directory -->
+            <testResource>
+                <directory>src/test/java</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+        	<!-- enable interpolation of the resources -->
 			<testResource>
 				<directory>src/test/resources</directory>
 				<filtering>true</filtering>

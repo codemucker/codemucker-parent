@@ -187,6 +187,7 @@
 					<configuration>
                         <!--<testFailureIgnore>false</testFailureIgnore>-->
 						<reportFormat>brief</reportFormat>
+						<trimStackTrace>false</trimStackTrace>   
 						<useFile>false</useFile>
 					</configuration>
 				</plugin>

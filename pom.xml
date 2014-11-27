@@ -22,6 +22,7 @@
 		<jackson.version>2.4.2</jackson.version>
 		<gwt.version>2.6.1</gwt.version>
 		<jetty.version>9.2.5.v20141112</jetty.version>
+		<codemucker.version>${project.version}</codemucker.version>
 	</properties>
 	<pluginRepositories>
 		<pluginRepository>
@@ -45,6 +46,46 @@
 	</mailingLists>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>org.codemucker</groupId>
+				<artifactId>codemucker-lang</artifactId>
+				<version>${codemucker.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codemucker</groupId>
+				<artifactId>codemucker-jmatch</artifactId>
+				<version>${codemucker.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codemucker</groupId>
+				<artifactId>codemucker-jmatch-http</artifactId>
+				<version>${codemucker.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codemucker</groupId>
+				<artifactId>codemucker-jfind</artifactId>
+				<version>${codemucker.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codemucker</groupId>
+				<artifactId>codemucker-jpattern</artifactId>
+				<version>${codemucker.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codemucker</groupId>
+				<artifactId>codemucker-jtest</artifactId>
+				<version>${codemucker.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codemucker</groupId>
+				<artifactId>codemucker-testserver</artifactId>
+				<version>${codemucker.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codemucker</groupId>
+				<artifactId>codemucker-testfirst</artifactId>
+				<version>${codemucker.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>

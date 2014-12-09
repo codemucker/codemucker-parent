@@ -87,6 +87,11 @@
 				<version>${codemucker.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.codemucker</groupId>
+				<artifactId>codemucker-jmutate</artifactId>
+				<version>${codemucker.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>
 				<version>2.4</version>
@@ -191,9 +196,9 @@
 				<version>3.3.1</version>
 			</dependency>
 			<dependency>
-				<groupId>jmock</groupId>
-				<artifactId>jmock</artifactId>
-				<version>20031129.200437</version>
+				<groupId>org.jmock</groupId>
+				<artifactId>jmock-junit4</artifactId>
+				<version>2.6.0</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
@@ -243,11 +248,6 @@
 				<artifactId>gwt-jackson</artifactId>
 				<scope>provided</scope>
 				<version>0.6.2</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-servlet</artifactId>
-				<version>${jetty.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
